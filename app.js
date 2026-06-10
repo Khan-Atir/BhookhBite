@@ -317,7 +317,24 @@ app.use("/admin", adminRoutes);
 
 
 
+app.get("/create-superadmin", async(req,res)=>{
 
+    const user = new User({
+
+        username: "Atir",
+
+        email: "Atir@gmail.com",
+
+        role: "superadmin"
+    });
+
+    await User.register(
+        user,
+        "Atir9931"
+    );
+
+    res.send("Super Admin Created");
+});
 
 
 
