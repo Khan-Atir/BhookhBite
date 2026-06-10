@@ -1,0 +1,387 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6fb;
+    color: #0f172a;
+}
+
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.restaurant-hero{
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    margin-bottom: 60px;
+}
+
+
+
+/* IMPORTANT FIX */
+
+.hero-image-wrapper{
+    height: 100%;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+
+
+/* IMPORTANT FIX */
+
+.hero-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+.hero-content{
+    padding: 55px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.restaurant-tag{
+    display: inline-block;
+    background: #0f172a;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    width: fit-content;
+}
+
+
+
+.restaurant-title{
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+
+
+.restaurant-location{
+    font-size: 24px;
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+
+
+.rating-box{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f5f9;
+    padding: 12px 18px;
+    border-radius: 18px;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+
+
+.restaurant-description{
+    font-size: 20px;
+    line-height: 1.8;
+    color: #64748b;
+    max-width: 650px;
+    margin-bottom: 35px;
+}
+
+
+
+.hero-stats{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+
+.stat-card{
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #111827
+    );
+
+    color: white;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    min-width: 190px;
+}
+
+
+
+.stat-card h3{
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+
+
+.stat-card p{
+    color: #cbd5e1;
+    margin: 0;
+    font-size: 16px;
+}
+
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+
+
+.section-title{
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+
+
+.section-subtitle{
+    color: #64748b;
+    font-size: 18px;
+}
+
+
+
+.dish-count{
+    background: #0f172a;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 18px;
+    font-weight: 700;
+}
+
+
+
+/* =========================
+   DISH CARD
+========================= */
+
+.dish-card{
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    transition: 0.3s;
+    height: 100%;
+}
+
+
+
+.dish-card:hover{
+    transform: translateY(-6px);
+}
+
+
+
+.dish-image-wrapper{
+    height: 240px;
+    overflow: hidden;
+}
+
+
+
+.dish-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.dish-content{
+    padding: 28px;
+}
+
+
+
+.dish-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+
+
+.dish-name{
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+
+.dish-price{
+    color: #f59e0b;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+
+
+.dish-description{
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+
+
+.dish-actions{
+    display: flex;
+    gap: 15px;
+}
+
+
+
+.order-btn,
+.cart-btn{
+    border: none;
+    padding: 15px;
+    border-radius: 16px;
+    font-weight: 700;
+    width: 100%;
+    transition: 0.3s;
+}
+
+
+
+.order-btn{
+    background: #0f172a;
+    color: white;
+}
+
+
+
+.order-btn:hover{
+    background: #020617;
+}
+
+
+
+.cart-btn{
+    background: #facc15;
+    color: #111827;
+}
+
+
+
+.cart-btn:hover{
+    background: #eab308;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 992px){
+
+    .restaurant-title{
+        font-size: 52px;
+    }
+
+    .hero-content{
+        padding: 40px;
+    }
+
+}
+
+
+
+@media(max-width: 768px){
+
+    .hero-image-wrapper{
+        min-height: 320px;
+    }
+
+    .restaurant-title{
+        font-size: 42px;
+    }
+
+    .restaurant-location{
+        font-size: 20px;
+    }
+
+    .restaurant-description{
+        font-size: 17px;
+    }
+
+    .section-header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+
+@media(max-width: 576px){
+
+    .hero-content{
+        padding: 28px;
+    }
+
+    .restaurant-title{
+        font-size: 34px;
+    }
+
+    .dish-top{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dish-actions{
+        flex-direction: column;
+    }
+
+    .stat-card{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+
+        <%= hotel.name %> | Partner Panel
+
+    </title>
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Custom CSS -->
+
+    <link
+        rel="stylesheet"
+        href="/css/partnerRestaurant.css"
+    >
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <%- include("partials/nav") %>
+
+
+
+    <div class="container py-5">
+
+        <!-- HERO SECTION -->
+
+        <div class="restaurant-hero shadow-lg">
+
+            <div class="row g-0 align-items-center">
+
+                <!-- IMAGE -->
+
+                <div class="col-lg-5">
+
+                    <img
+                        src="<%= hotel.image.url %>"
+                        alt="<%= hotel.name %>"
+                        class="restaurant-image"
+                    >
+
+                </div>
+
+
+
+                <!-- DETAILS -->
+
+                <div class="col-lg-7">
+
+                    <div class="restaurant-content">
+
+                        <div class="top-badge">
+
+                            Partner Restaurant
+
+                        </div>
+
+                        <h1 class="restaurant-name">
+
+                            <%= hotel.name %>
+
+                        </h1>
+
+                        <p class="restaurant-location">
+
+                            📍 <%= hotel.location %>
+
+                        </p>
+
+                        <div class="restaurant-rating">
+
+                            ⭐ <%= hotel.rating %>
+
+                        </div>
+
+                        <p class="restaurant-description">
+
+                            Manage your restaurant,
+                            dishes, pricing and customer
+                            experience from one place.
+
+                        </p>
+
+
+
+                        <!-- STATS -->
+
+                        <div class="stats-wrapper">
+
+                            <div class="stat-box">
+
+                                <h3>
+
+                                    <%= hotel.dishes.length %>
+
+                                </h3>
+
+                                <p>
+
+                                    Total Dishes
+
+                                </p>
+
+                            </div>
+
+                            <div class="stat-box">
+
+                                <h3>
+
+                                    Active
+
+                                </h3>
+
+                                <p>
+
+                                    Restaurant Status
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MANAGEMENT SECTION -->
+
+        <div class="management-section mt-5">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-5">
+
+                <div>
+
+                    <h2 class="section-title">
+
+                        Restaurant Controls
+
+                    </h2>
+
+                    <p class="section-subtitle">
+
+                        Manage dishes, restaurant information and operations.
+
+                    </p>
+
+                </div>
+
+                <a
+                    href="/partner/restaurants/<%= hotel._id %>/dishes/new"
+                    class="primary-btn"
+                >
+
+                    + Add New Dish
+
+                </a>
+
+            </div>
+
+
+
+            <!-- CONTROL CARDS -->
+
+            <div class="row g-4 mb-5">
+
+                <!-- EDIT -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="control-card">
+
+                        <div class="control-icon">
+
+                            ✏️
+
+                        </div>
+
+                        <h4>
+
+                            Edit Restaurant
+
+                        </h4>
+
+                        <p>
+
+                            Update restaurant name,
+                            location, image and ratings.
+
+                        </p>
+
+                        <a
+                            href="/partner/restaurants/<%= hotel._id %>/edit"
+                            class="card-btn"
+                        >
+
+                            Edit Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DELETE -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="control-card">
+
+                        <div class="control-icon">
+
+                            🗑️
+
+                        </div>
+
+                        <h4>
+
+                            Delete Restaurant
+
+                        </h4>
+
+                        <p>
+
+                            Permanently remove this
+                            restaurant from platform.
+
+                        </p>
+
+                        <form
+                            action="/partner/restaurants/<%= hotel._id %>?_method=DELETE"
+                            method="POST"
+                        >
+
+                            <button class="delete-btn">
+
+                                Delete
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ORDERS -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="control-card">
+
+                        <div class="control-icon">
+
+                            📦
+
+                        </div>
+
+                        <h4>
+
+                            Orders
+
+                        </h4>
+
+                        <p>
+
+                            Track customer orders,
+                            deliveries and updates.
+
+                        </p>
+
+                        <a
+                            href="#"
+                            class="card-btn"
+                        >
+
+                            View Orders
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DISHES HEADER -->
+
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+                <h2 class="section-title">
+
+                    Available Dishes
+
+                </h2>
+
+                <div class="dish-count">
+
+                    <%= hotel.dishes.length %> Dishes
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DISH CARDS -->
+
+            <div class="row g-4">
+
+                <% for(let dish of hotel.dishes){ %>
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="dish-card">
+
+                            <img
+                                src="<%= dish.image.url %>"
+                                alt="<%= dish.name %>"
+                                class="dish-image"
+                            >
+
+                            <div class="dish-content">
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <h4 class="dish-name">
+
+                                        <%= dish.name %>
+
+                                    </h4>
+
+                                    <div class="dish-price">
+
+                                        ₹<%= dish.price %>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="dish-actions">
+
+                                    <a
+                                        href="/partner/restaurants/<%= hotel._id %>/dishes/<%= dish._id %>/edit"
+                                        class="edit-btn"
+                                    >
+
+                                        Edit
+
+                                    </a>
+
+                                    <form
+                                        action="/partner/restaurants/<%= hotel._id %>/dishes/<%= dish._id %>?_method=DELETE"
+                                        method="POST"
+                                    >
+
+                                        <button
+                                            class="remove-btn"
+                                        >
+
+                                            Delete
+
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <% } %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <%- include("partials/footer") %>
+
+
+
+    <!-- Bootstrap -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+</body>
+
+</html>

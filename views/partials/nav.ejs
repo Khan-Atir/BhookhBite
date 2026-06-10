@@ -1,0 +1,258 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3 sticky-top border-bottom">
+
+  <div class="container-fluid px-4 px-lg-5">
+
+    <!-- Logo -->
+    <a
+      class="navbar-brand fw-bold fs-2 me-4 d-flex align-items-center gap-3"
+      href="/dishes"
+    >
+      <i class="fa-solid fa-burger text-warning me-2"></i>
+      <span>BhookhBite</span>
+    </a>
+
+    <!-- Search -->
+    <form
+      class="d-flex search-box mx-lg-4 my-3 my-lg-0"
+      role="search"
+      action="/search"
+      method="GET"
+    >
+
+      <input
+        class="form-control me-2 rounded-4 px-4 py-2"
+        type="search"
+        name="q"
+        placeholder="Search dishes..."
+        required
+      >
+
+      <button
+        class="btn btn-warning rounded-4 px-4 text-nowrap"
+        type="submit"
+      >
+        <i class="fa-solid fa-magnifying-glass me-2"></i>
+        Search
+      </button>
+
+    </form>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler ms-3"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+    >
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <!-- Navbar Content -->
+    <div
+      class="collapse navbar-collapse justify-content-center mt-3 mt-lg-0"
+      id="navbarContent"
+    >
+
+      <!-- Main Links -->
+      <ul class="navbar-nav ms-lg-4 align-items-lg-center gap-lg-3">
+
+
+        <!-- HOME -->
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="/dishes">
+          <i class="fa-solid fa-house me-1"></i>
+            Home
+          </a>
+        </li>
+
+        <!-- OFFERS -->
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="#">
+            <i class="fa-solid fa-tags me-1"></i>
+            Offers
+          </a>
+        </li>
+
+        <!-- RESTAURANTS -->
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="/restaurants">
+            <i class="fa-solid fa-store me-1"></i>
+            Restaurants
+          </a>
+        </li>
+
+      </ul>
+
+
+
+      <!-- USER LOGGED IN -->
+      <% if(currUser){ %>
+
+      <ul class="navbar-nav ms-lg-4 align-items-lg-center gap-lg-3">
+
+        <!-- Cart -->
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="/cart">
+            <i class="fa-solid fa-cart-shopping me-1"></i>
+            Cart
+          </a>
+        </li>
+
+        <!-- Profile Dropdown -->
+        <li class="nav-item dropdown">
+
+          <a
+            class="nav-link dropdown-toggle fs-5"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fa-solid fa-user me-1"></i>
+            Me
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 p-2">
+
+            <li>
+              <h6 class="dropdown-header fw-bold">
+                <i class="fa-solid fa-circle-user text-warning me-2"></i>
+                Hello <%= currUser.username %>
+              </h6>
+            </li>
+
+            <li>
+  <a
+    class="dropdown-item rounded-3"
+    href="/orders/my"
+  >
+    <i class="fa-solid fa-bag-shopping me-2"></i>
+    My Orders
+  </a>
+</li>
+
+<% if(currUser.role === "restaurantAdmin"){ %>
+
+<li>
+  <a
+    class="dropdown-item rounded-3"
+    href="/partner/dashboard"
+  >
+    <i class="fa-solid fa-chart-line me-2"></i>
+    Partner Dashboard
+  </a>
+</li>
+
+<% } else { %>
+
+<li>
+  <a
+    class="dropdown-item rounded-3"
+    href="/partner/signup"
+  >
+    <i class="fa-solid fa-store me-2"></i>
+    Become a Partner
+  </a>
+</li>
+
+<% } %>
+
+<li>
+  <hr class="dropdown-divider">
+</li>
+
+<li>
+  <a
+    class="dropdown-item text-danger rounded-3"
+    href="/logout"
+  >
+    <i class="fa-solid fa-right-from-bracket me-2"></i>
+    Logout
+  </a>
+</li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+      <% } else { %>
+
+      <!-- Guest Buttons -->
+      <ul class="navbar-nav ms-lg-4 align-items-lg-center gap-lg-3">
+
+        <li class="nav-item">
+          <a
+            href="/signup"
+            class="btn btn-outline-light rounded-4 px-4 text-nowrap"
+          >
+            Sign Up
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            href="/login"
+            class="btn btn-warning rounded-4 px-4 text-nowrap"
+          >
+            Sign In
+          </a>
+        </li>
+
+      </ul>
+
+      <% } %>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+
+<!-- FLASH MESSAGES -->
+
+<% if(success && success.length > 0){ %>
+
+<div class="container mt-3">
+
+  <div class="alert alert-success alert-dismissible fade show">
+
+    <%= success %>
+
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+    ></button>
+
+  </div>
+
+</div>
+
+<% } %>
+
+
+
+<% if(error && error.length > 0){ %>
+
+<div class="container mt-3">
+
+  <div class="alert alert-danger alert-dismissible fade show">
+
+    <%= error %>
+
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+    ></button>
+
+  </div>
+
+</div>
+
+<% } %>

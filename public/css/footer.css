@@ -1,0 +1,14 @@
+/* FOOTER CSS......... */
+.footer-links li{
+    margin-bottom: 10px;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: #bdbdbd;
+    transition: 0.3s;
+}
+
+.footer-links a:hover{
+    color: #ffc107;
+}
