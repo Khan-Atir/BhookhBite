@@ -2,7 +2,6 @@
   "engine": {
     "node": "22.18.0"
   },
-
   "name": "bhookhbite",
   "version": "1.0.0",
   "description": "My bhookh solution project",
@@ -13,7 +12,7 @@
   "author": "Md Atir",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^2.10.0",
+    "cloudinary": "^1.41.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^6.0.0",
     "cors": "^2.8.6",
